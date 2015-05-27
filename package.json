@@ -1,0 +1,12 @@
+{
+  "name": "toggle-working-files",
+  "title": "Toggle Working Files panel",
+  "description": "Toggle Working Files panel. Go to View > Toggle Working Files",
+  "homepage": "https://github.com/tnhu/toggle-working-files",
+  "version": "1.0.0",
+  "author": "Tan Nhu - https://lnkd.in/tnhu",
+  "license": "MIT",
+  "engines": {
+      "brackets": ">=1.3"
+  }
+}
