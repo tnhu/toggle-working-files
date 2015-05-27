@@ -1,17 +1,22 @@
 /*jslint vars: true */
-/*global define, $, brackets */
+/*global define, $, brackets, console */
 
 define(function (require, exports, module) {
   "use strict";
 
   var EXTENSION_ID = "toggle-working-files.toggle";
+  var HIDE = 'hide';
 
   // -- Preferences
 
   var PreferencesManager = brackets.getModule("preferences/PreferencesManager");
   var prefs = PreferencesManager.getExtensionPrefs(EXTENSION_ID);
+  var ExtensionUtils = brackets.getModule("utils/ExtensionUtils");
+  var isEnabled = prefs.get("enabled");
 
-  prefs.definePreference("enabled", "boolean", false);
+  if (!isEnabled) {
+    prefs.definePreference("enabled", "boolean", false);
+  }
 
   // --- Adding "Toggle Working Files" into View and add handler
 
@@ -23,7 +28,7 @@ define(function (require, exports, module) {
 
     prefs.set("enabled", !enabled);
 
-    $("#working-set-list-container").toggle();
+    $("#working-set-list-container").toggleClass(HIDE);
   }
 
   CommandManager.register('Toggle Working Files', EXTENSION_ID, handler);
@@ -31,7 +36,9 @@ define(function (require, exports, module) {
   var menu = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
   menu.addMenuItem(EXTENSION_ID);
 
-  if (prefs.get("enabled")) {
-    $("#working-set-list-container").toggle();
+  ExtensionUtils.loadStyleSheet(module, 'main.css');
+
+  if (isEnabled) {
+    $("#working-set-list-container").addClass(HIDE);
   }
 });

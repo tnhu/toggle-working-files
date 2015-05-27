@@ -3,7 +3,7 @@
   "title": "Toggle Working Files panel",
   "description": "Toggle Working Files panel. Go to View > Toggle Working Files",
   "homepage": "https://github.com/tnhu/toggle-working-files",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Tan Nhu - https://lnkd.in/tnhu",
   "license": "MIT",
   "engines": {
